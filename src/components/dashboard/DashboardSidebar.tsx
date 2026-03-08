@@ -22,9 +22,13 @@ interface Props {
 const DashboardSidebar = ({ activeTab, onTabChange }: Props) => (
   <aside className="glass-panel flex w-16 flex-col items-center justify-between py-6">
     <div className="flex flex-col items-center gap-1">
-      <div className="mb-6 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/15 text-primary">
+      <button
+        onClick={() => onTabChange("landing")}
+        className="mb-6 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/15 text-primary transition-all hover:shadow-[0_0_12px_hsl(var(--glow-primary)/0.3)]"
+        title="Home"
+      >
         <span className="text-lg font-bold glow-text">A</span>
-      </div>
+      </button>
 
       {navItems.map(({ icon: Icon, label, tab }) => (
         <button
