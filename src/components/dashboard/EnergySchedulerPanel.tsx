@@ -54,9 +54,7 @@ const EnergySchedulerPanel = () => {
                   className={`w-full flex items-center justify-between rounded-lg border p-4 transition-all text-left ${
                     activeBatch === batch.id
                       ? "border-primary/60 bg-primary/10 shadow-[0_0_16px_hsl(var(--glow-primary)/0.15)]"
-                      : batch.status === "running"
-                        ? "border-primary/25 bg-primary/5 hover:border-primary/40"
-                        : "border-border/50 bg-secondary/30 hover:border-border"
+                      : "border-border/50 bg-secondary/30 hover:border-border"
                   }`}
                 >
                   <div className="flex items-center gap-3">
