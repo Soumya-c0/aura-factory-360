@@ -5,8 +5,10 @@ import ARCanvasPanel from "@/components/dashboard/ARCanvasPanel";
 import TelemetryPanel from "@/components/dashboard/TelemetryPanel";
 import AssetLedgerPanel from "@/components/dashboard/AssetLedgerPanel";
 import EnergySchedulerPanel from "@/components/dashboard/EnergySchedulerPanel";
+import LandingPage from "@/components/dashboard/LandingPage";
 
 const viewComponents: Record<ViewTab, React.FC> = {
+  landing: LandingPage,
   dashboard: TelemetryPanel,
   "ar-feed": ARCanvasPanel,
   "asset-ledger": AssetLedgerPanel,
@@ -14,7 +16,7 @@ const viewComponents: Record<ViewTab, React.FC> = {
 };
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState<ViewTab>("dashboard");
+  const [activeTab, setActiveTab] = useState<ViewTab>("landing");
   const ActiveView = viewComponents[activeTab];
 
   return (
