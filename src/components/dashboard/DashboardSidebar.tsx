@@ -1,6 +1,6 @@
 import { LayoutDashboard, Eye, ShieldAlert, Zap, Settings, HelpCircle } from "lucide-react";
 
-export type ViewTab = "dashboard" | "ar-feed" | "asset-ledger" | "energy-scheduler";
+export type ViewTab = "landing" | "dashboard" | "ar-feed" | "asset-ledger" | "energy-scheduler";
 
 const navItems: { icon: typeof LayoutDashboard; label: string; tab: ViewTab }[] = [
   { icon: LayoutDashboard, label: "Dashboard", tab: "dashboard" },
