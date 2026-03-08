@@ -14,23 +14,23 @@ const MetricCard = ({ label, unit, value, target, driftPct }: MetricCardProps) =
   const DriftIcon = driftPct > 0 ? TrendingUp : TrendingDown;
 
   return (
-    <div className="glass-panel p-4">
-      <p className="section-title mb-2">{label}</p>
+    <div className="glass-panel p-5">
+      <p className="section-title mb-3">{label}</p>
       <div className="flex items-end justify-between">
         <div>
-          <span className="metric-value text-foreground">{value.toLocaleString()}</span>
-          <span className="ml-1 text-sm text-muted-foreground">{unit}</span>
+          <span className="metric-value text-foreground text-4xl">{value.toLocaleString()}</span>
+          <span className="ml-2 text-base text-muted-foreground">{unit}</span>
         </div>
-        <div className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold ${
+        <div className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-semibold ${
           isDanger
             ? "bg-destructive/15 text-destructive"
             : "bg-success/15 text-success"
         }`}>
-          <DriftIcon className="h-3 w-3" />
+          <DriftIcon className="h-4 w-4" />
           {driftPct > 0 ? "+" : ""}{driftPct}%
         </div>
       </div>
-      <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
+      <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
         <span>Target:</span>
         <span className="font-mono font-medium text-foreground/70">{target.toLocaleString()} {unit}</span>
       </div>
@@ -51,30 +51,32 @@ const driftData = [
 ];
 
 const TelemetryPanel = () => (
-  <div className="flex flex-col gap-3">
+  <div className="flex flex-col gap-4 h-full">
     <div className="flex items-center gap-2 px-1">
       <Activity className="h-4 w-4 text-primary" />
-      <span className="section-title">Live Telemetry & Drift</span>
+      <span className="section-title">Live Telemetry & Drift Analytics</span>
     </div>
 
-    <MetricCard label="Power Consumption" unit="kW" value={342} target={310} driftPct={10.3} />
-    <MetricCard label="Motor Speed" unit="RPM" value={1475} target={1500} driftPct={-1.7} />
-    <MetricCard label="Temperature" unit="°C" value={78} target={72} driftPct={8.3} />
+    <div className="grid grid-cols-3 gap-4">
+      <MetricCard label="Power Consumption" unit="kW" value={342} target={310} driftPct={10.3} />
+      <MetricCard label="Motor Speed" unit="RPM" value={1475} target={1500} driftPct={-1.7} />
+      <MetricCard label="Temperature" unit="°C" value={78} target={72} driftPct={8.3} />
+    </div>
 
-    {/* Drift Chart */}
-    <div className="glass-panel p-4">
-      <p className="section-title mb-3">L2 Drift Over Time</p>
-      <div className="h-36">
+    {/* Drift Chart - expanded */}
+    <div className="glass-panel p-5 flex-1 min-h-[300px]">
+      <p className="section-title mb-4">L2 Drift Over Time</p>
+      <div className="h-[calc(100%-3rem)]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={driftData}>
             <XAxis
               dataKey="t"
-              tick={{ fontSize: 10, fill: "hsl(215 15% 55%)" }}
+              tick={{ fontSize: 11, fill: "hsl(215 15% 55%)" }}
               axisLine={false}
               tickLine={false}
             />
             <YAxis
-              tick={{ fontSize: 10, fill: "hsl(215 15% 55%)" }}
+              tick={{ fontSize: 11, fill: "hsl(215 15% 55%)" }}
               axisLine={false}
               tickLine={false}
               domain={[0, 20]}
@@ -96,7 +98,6 @@ const TelemetryPanel = () => (
               dot={false}
               filter="drop-shadow(0 0 4px hsl(170 80% 50% / 0.4))"
             />
-            {/* Threshold line at 10% */}
             <Line
               type="monotone"
               dataKey={() => 10}

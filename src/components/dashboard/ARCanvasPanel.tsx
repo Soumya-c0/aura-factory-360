@@ -1,7 +1,7 @@
 import { Box, Maximize2 } from "lucide-react";
 
 const ARCanvasPanel = () => (
-  <div className="glass-panel-accent flex flex-col overflow-hidden">
+  <div className="glass-panel-accent flex flex-col overflow-hidden h-full min-h-[500px]">
     <div className="flex items-center justify-between border-b border-border/50 px-5 py-3">
       <div className="flex items-center gap-2">
         <Box className="h-4 w-4 text-primary" />
@@ -15,7 +15,6 @@ const ARCanvasPanel = () => (
     <div className="relative flex flex-1 items-center justify-center overflow-hidden"
       style={{ background: "linear-gradient(145deg, hsl(220 20% 6%), hsl(230 25% 10%), hsl(220 20% 6%))" }}
     >
-      {/* Scan line effect */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.03]">
         <div
           className="absolute inset-x-0 h-[200%]"
@@ -26,7 +25,6 @@ const ARCanvasPanel = () => (
         />
       </div>
 
-      {/* Grid pattern */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
