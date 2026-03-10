@@ -6,6 +6,7 @@ from src.drift import calculate_drift
 from src.root_cause import find_root_causes
 from src.recommendation_engine import generate_recommendations
 from src.golden_signature import update_golden_signature
+from src.energy_scheduler import optimize_schedule
 
 app = FastAPI(title="AuraFactoryCore API")
 process_df, production_df = load_datasets()
@@ -20,6 +21,17 @@ def home():
 @app.get("/get_golden_signature")
 def get_golden_signature():
     return golden_signature.to_dict()
+
+@app.get("/optimize_schedule")
+def optimize(energy_limit: int = 1000, carbon_limit: int = 500):
+
+    result = optimize_schedule(
+        "data/_h_batch_process_data.xlsx",
+        energy_limit,
+        carbon_limit
+    )
+
+    return result
 
 @app.post("/check_drift")
 def check_drift(batch_index: int):
