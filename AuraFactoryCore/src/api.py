@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from src.data_loader import load_datasets
 from src.feature_engineering import simulate_batches, aggregate_batch_features
 from src.golden_signature import compute_golden_signature
@@ -9,6 +10,13 @@ from src.golden_signature import update_golden_signature
 from src.energy_scheduler import optimize_schedule
 
 app = FastAPI(title="AuraFactoryCore API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # Allows your React app to connect
+    allow_credentials=True,
+    allow_methods=["*"], # Allows GET, POST, etc.
+    allow_headers=["*"], # Allows all headers
+)
 process_df, production_df = load_datasets()
 process_df = simulate_batches(process_df, production_df)
 batch_features = aggregate_batch_features(process_df)
