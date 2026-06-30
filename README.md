@@ -1,73 +1,175 @@
-# Welcome to your Lovable project
+# Aura Factory 360
 
-## Project info
+An AI-powered Industrial IoT command center for predictive maintenance, real-time machine monitoring, intelligent knowledge retrieval and production optimization.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+Modern manufacturing plants often rely on manual maintenance, resulting in unexpected downtime, expensive repairs and inefficient production schedules. Operating knowledge is buried inside lengthy Standard Operating Procedures (SOPs), making troubleshooting slow and dependent on experienced personnel.
 
-**Use Lovable**
+Aura Factory 360 is a closed-loop Industrial IoT platform that transforms factory operations from reactive monitoring into proactive AI-assisted decision making.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+The platform continuously monitors machine telemetry, detects performance drift using scientific computing, retrieves relevant maintenance procedures using Retrieval-Augmented Generation (RAG), optimizes production scheduling through heuristic algorithms and provides an interactive spatial digital twin for maintenance engineers.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+# Key Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Live Telemetry Analytics
+- Real-time machine telemetry visualization
+- Continuous EKG-style monitoring dashboards
+- Multi-variable sensor correlation
+- Scientific drift detection using SciPy
+- Live WebSocket updates
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+### AI Knowledge Retrieval
+- Autonomous SOP ingestion
+- Semantic document search
+- Retrieval-Augmented Generation (RAG)
+- Vector database powered knowledge retrieval
+- Instant maintenance recommendations
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Predictive Bin-Packing Engine
+- Heuristic production scheduling
+- Workload optimization
+- Energy-aware production planning
+- Off-peak grid hour scheduling
+- Intelligent batch allocation
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Spatial AR Twin
+- Interactive factory visualization
+- Browser-based Augmented Reality
+- Hardware-independent overlays
+- Live maintenance guidance
+- Mobile WebRTC camera support
+
+---
+
+# System Architecture
+
+```text
+                Physical Factory Floor
+                  (PLCs & IoT Sensors)
+                           │
+                     MQTT Telemetry
+                           │
+                           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                  Python Backend Services                     │
+│--------------------------------------------------------------│
+│ • InfluxDB Time-Series Storage                               │
+│ • Redis Pub/Sub                                              │
+│ • SciPy Drift Detection Engine                               │
+│ • Heuristic Optimization Engine                              │
+│ • RAG Pipeline + Vector Database                             │
+└──────────────────────────────────────────────────────────────┘
+                           │
+                WebSocket / JSON Stream
+                           │
+                           ▼
+┌──────────────────────────────────────────────────────────────┐
+│                  React Operations Dashboard                  │
+├──────────────────────────────────────────────────────────────┤
+│ • Live Telemetry Analytics                                   │
+│ • Active Asset Ledger                                        │
+│ • Predictive Bin-Packing                                     │
+│ • Spatial AR Twin                                            │
+└──────────────────────────────────────────────────────────────┘
+                           │
+                    Secure Vite SSL Tunnel
+                           │
+                           ▼
+                 Mobile AR (WebRTC Camera)
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# System Modules
 
-**Use GitHub Codespaces**
+| Module | Core Functionality | Technologies |
+|---------|-------------------|--------------|
+| **Live Telemetry Analytics** | Continuous telemetry visualization, multi-variable correlation, real-time drift prediction | React, WebSockets, Python, SciPy |
+| **Active Asset Ledger** | Semantic SOP retrieval, autonomous knowledge lookup, AI-assisted maintenance | LLMs, Vector Databases, RAG |
+| **Spatial AR Twin** | Browser-based augmented reality overlays for maintenance workflows | HTML5, CSS3D, WebRTC, Vite SSL |
+| **Predictive Bin-Packing** | Intelligent workload scheduling and production optimization | Python, Heuristic Algorithms |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+# Technology Stack
 
-This project is built with:
+## Frontend
 
-- Vite
-- TypeScript
 - React
-- shadcn-ui
+- TypeScript
+- Vite
 - Tailwind CSS
+- Recharts
 
-## How can I deploy this project?
+## Backend
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- Python
+- SciPy
+- Redis Pub/Sub
+- MQTT
+- InfluxDB
 
-## Can I connect a custom domain to my Lovable project?
+## AI
 
-Yes, you can!
+- Large Language Models (LLMs)
+- Retrieval-Augmented Generation (RAG)
+- Vector Databases
+- Semantic Search
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Spatial Computing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- HTML5 getUserMedia API
+- WebRTC
+- CSS3D
+- LocalStorage Synchronization
+
+---
+
+# Core Workflow
+
+1. Factory PLCs continuously stream telemetry through MQTT.
+2. The Python backend stores telemetry in InfluxDB.
+3. The SciPy engine compares live machine signatures against baseline operating profiles.
+4. Machine drift is detected and scored in real time.
+5. The RAG engine searches indexed SOPs to retrieve relevant maintenance procedures.
+6. The heuristic optimizer schedules workloads for energy-efficient production.
+7. Results are streamed to the React dashboard over WebSockets.
+8. Engineers can inspect equipment through the Spatial AR Twin on mobile devices.
+
+---
+
+# Run the Project
+
+## Clone the repository
+
+```bash
+git clone https://github.com/Soumya-c0/aura-factory-360.git
+cd aura-factory-360
+```
+
+## Start the backend
+
+```bash
+cd backend
+pip install -r requirements.txt
+python main.py
+```
+
+## Start the frontend
+
+```bash
+cd frontend
+npm install
+npm run dev -- --host
+```
